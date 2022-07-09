@@ -18,12 +18,28 @@ public class App {
     }
 
     public static int func(int playerArmPower, int playerWeaponPower, int enemyBodyDefence, int enemyArmorDefence) {
-        int totalPlayerAttackPower = playerArmPower + playerWeaponPower;
-        int totalEnemyDefence = enemyBodyDefence + enemyArmorDefence;
+        int totalPlayerAttackPower = sumUpPlayerAttackPower(playerArmPower, playerWeaponPower);
+        int totalEnemyDefence = sumUpEnemyDefence(enemyBodyDefence, enemyArmorDefence);
+        return estimateDamage(totalPlayerAttackPower, totalEnemyDefence);
+    }
+
+    // プレイヤーの攻撃力を合算する
+    private static int sumUpPlayerAttackPower(int playerArmPower, int playerWeaponPower) {
+        return playerArmPower + playerWeaponPower;
+    }
+
+    // 敵の防御力を合算する
+    private static int sumUpEnemyDefence(int enemyBodyDefence, int enemyArmorDefence) {
+        return enemyBodyDefence + enemyArmorDefence;
+    }
+
+    // ダメージ量を評価する
+    private static int estimateDamage(int totalPlayerAttackPower, int totalEnemyDefence) {
         int damageAmount = totalPlayerAttackPower - (totalEnemyDefence / 2);
         if (damageAmount < 0) {
-            damageAmount = 0;
+            return 0;
         }
         return damageAmount;
     }
+
 }
