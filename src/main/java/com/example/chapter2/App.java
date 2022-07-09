@@ -20,7 +20,8 @@ public class App {
     public static int func(int playerArmPower, int playerWeaponPower, int enemyBodyDefence, int enemyArmorDefence) {
         int totalPlayerAttackPower = sumUpPlayerAttackPower(playerArmPower, playerWeaponPower);
         int totalEnemyDefence = sumUpEnemyDefence(enemyBodyDefence, enemyArmorDefence);
-        return estimateDamage(totalPlayerAttackPower, totalEnemyDefence);
+        int damageAmount = estimateDamage(totalPlayerAttackPower, totalEnemyDefence);
+        return damageAmount;
     }
 
     // プレイヤーの攻撃力を合算する
