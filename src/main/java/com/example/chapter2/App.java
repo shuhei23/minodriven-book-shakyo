@@ -1,12 +1,10 @@
 package com.example.chapter2;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        int playerAtk = 50; 
+public class App {
+    public static void main(String[] args) {
+        int playerAtk = 50;
         int weaponAtk = 20;
-        int villainDef = 60; 
+        int villainDef = 60;
         int armorDef = 30;
 
         System.out.println(String.format("プレイヤー本体の攻撃力: %d", playerAtk));
@@ -19,13 +17,13 @@ public class App
         System.out.println(String.format("ダメージは%dです", damage));
     }
 
-    public static int func(int p1, int p2, int d1, int d2){
-        int d = 0;
-        d = p1 + p2;
-        d = d -((d1 + d2) / 2);
-        if(d < 0) {
-            d = 0;
+    public static int func(int playerArmPower, int playerWeaponPower, int enemyBodyDefence, int enemyArmorDefence) {
+        int damageAmount = 0;
+        damageAmount = playerArmPower + playerWeaponPower; // プレイヤーの攻撃力の総量
+        damageAmount = damageAmount - ((enemyBodyDefence + enemyArmorDefence) / 2); // 敵の防御力の総量
+        if (damageAmount < 0) {
+            damageAmount = 0;
         }
-        return d;
+        return damageAmount;
     }
 }
