@@ -18,9 +18,9 @@ public class App {
     }
 
     public static int func(int playerArmPower, int playerWeaponPower, int enemyBodyDefence, int enemyArmorDefence) {
-        int damageAmount = 0;
-        damageAmount = playerArmPower + playerWeaponPower; // プレイヤーの攻撃力の総量
-        damageAmount = damageAmount - ((enemyBodyDefence + enemyArmorDefence) / 2); // 敵の防御力の総量
+        int totalPlayerAttackPower = playerArmPower + playerWeaponPower;
+        int totalEnemyDefence = enemyBodyDefence + enemyArmorDefence;
+        int damageAmount = totalPlayerAttackPower - (totalEnemyDefence / 2);
         if (damageAmount < 0) {
             damageAmount = 0;
         }
