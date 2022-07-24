@@ -24,32 +24,11 @@ public class MoneyTest {
         assertEquals("通貨単位を指定してください。", e.getMessage());
     }
 
-    int originalPrice = 100;
-    int additionalServiceFee = 20;
-    boolean specialServiceAdded = true;
-    boolean seasonOffApplied = true;
-
-    private int seasonPrice() {
-        Calendar calendar = Calendar.getInstance();
-        int month = calendar.get(Calendar.MONTH) + 1;
-        return month * 10;
-    }
-
     @Test
     void インスタンス変数をどんどん上書きしている() {
-
-        Money money = new Money(0, Currency.getInstance(Locale.JAPAN));
-        money.amount = originalPrice;
-        // 中略
-        if (specialServiceAdded) {
-            money.add(additionalServiceFee);
-            // 中略
-            if (seasonOffApplied) {
-                money.amount = seasonPrice();
-            }
-        }
-
-        System.out.println(String.format("料金は%d円です。",money.amount));
+        Currency yen = Currency.getInstance(Locale.JAPAN);
+        Money money = new Money(100, yen);
+        money.amount = -200; // コンパイルエラー
     }
 
 }

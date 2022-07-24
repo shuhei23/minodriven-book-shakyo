@@ -19,6 +19,6 @@ public class Money {
     }
 
     void add(int other) {
-        amount += other;
+        //amount += other; コンパイルエラー回避のためコメントアウト
     }
 }
